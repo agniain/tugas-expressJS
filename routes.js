@@ -5,9 +5,11 @@ router.get('/', (req, res) => {
         status: 'Successfully',
         message: 'Hello!, this is my first project'
     });
+
+    res.end()
 });
 
-router.get('/date/', (req, res) =>{
+router.get('/date', (req, res) =>{
     const now = new Date();
     const jakartaTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Jakarta'}));
 
@@ -17,15 +19,16 @@ router.get('/date/', (req, res) =>{
     });
 });
 
-router.get('/data/', (req, res) => {
-    const {name, age} = req.query;
-    res.send({
+router.get('/data', (req, res) => {
+    const { name, age } = req.query;
+
+    res.json({
         name,
         age
     });
 });
 
-router.get('/diet/', (req, res) => {
+router.get('/diet', (req, res) => {
     res.json({
         category: 'food',
         type: 'noodle',
